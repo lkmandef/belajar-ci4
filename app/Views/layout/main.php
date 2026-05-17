@@ -10,7 +10,7 @@
         href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css'
         rel='stylesheet'>
     <!-- Bootstrap Icons -->
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrapicons.css'
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css'
         rel='stylesheet'>
     <!-- Custom CSS -->
     <link rel='stylesheet' href='<?= base_url('assets/css/custom.css') ?>'>
@@ -59,6 +59,12 @@
                         <a class='nav-link <?= str_contains(current_url(), '/galeri') ? 'active' : '' ?>'
                             href='<?= base_url('galeri') ?>'>
                             <i class='bi bi-images'></i> Galeri
+                        </a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link <?= str_contains(current_url(), '/kategori') ? 'active' : '' ?>'
+                            href='<?= base_url('kategori') ?>'>
+                            <i class='bi bi-tags'></i> Kategori
                         </a>
                     </li>
                 </ul>
