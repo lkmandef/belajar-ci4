@@ -45,3 +45,5 @@ $routes->post('kategori/simpan',        'Kategori::simpan');
 $routes->get('kategori/edit/(:num)',    'Kategori::edit/$1');
 $routes->post('kategori/update/(:num)', 'Kategori::update/$1');
 $routes->get('kategori/hapus/(:num)',   'Kategori::hapus/$1');
+
+$routes->get('buku/statistik', 'Buku::statistik');
