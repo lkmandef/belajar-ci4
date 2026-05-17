@@ -23,3 +23,5 @@ $routes->get('test/alphanum/(:alphanum)', 'Akademik::index/$1');
 
 // Route controller Demo
 $routes->get('demo', 'Demo::index');
+// Route halaman profil
+$routes->get('profil', 'Profil::index');
