@@ -11,7 +11,7 @@
             <i class='bi bi-graph-up'></i> Statistik
         </a>
         <a href='<?= base_url('buku/ekspor' . ($keyword ? '?q=' . urlencode($keyword) : '')) ?>' class='btn btn-success'>
-            <i class='bi bi-file-earmark-csv'></i> Ekspor CSV
+            <i class='bi bi-file-earmark-csv'></i> EksporCSV
         </a>
         <a href='<?= base_url('buku/tambah') ?>' class='btn btn-primary'>
             <i class='bi bi-plus-circle'></i> Tambah Buku
