@@ -48,6 +48,19 @@
                             <i class='bi bi-info-circle'></i> Tentang
                         </a>
                     </li>
+                    <li class='nav-item'>
+                        <a class='nav-link <?= str_contains(current_url(), '/profil') ? 'active' : '' ?>'
+                            href='<?= base_url('profil') ?>'>
+                            <i class='bi bi-person'></i> Profil
+                        </a>
+                    </li>
+
+                    <li class='nav-item'>
+                        <a class='nav-link <?= str_contains(current_url(), '/galeri') ? 'active' : '' ?>'
+                            href='<?= base_url('galeri') ?>'>
+                            <i class='bi bi-images'></i> Galeri
+                        </a>
+                    </li>
                 </ul>
                 <div class='navbar-nav'>
                     <?php if (session()->get('logged_in')): ?>
@@ -144,6 +157,9 @@
     <script
         src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js'>
     </script>
+    <!-- Page-specific Scripts Section -->
+    <?= $this->renderSection('scripts') ?>
+
 </body>
-<
-    /html>
+
+</html>
