@@ -25,3 +25,5 @@ $routes->get('test/alphanum/(:alphanum)', 'Akademik::index/$1');
 $routes->get('demo', 'Demo::index');
 // Route halaman profil
 $routes->get('profil', 'Profil::index');
+// Route halaman galeri
+$routes->get('galeri', 'Galeri::index');

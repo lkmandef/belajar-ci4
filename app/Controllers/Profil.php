@@ -7,11 +7,11 @@ class Profil extends BaseController
     public function index(): string
     {
         $data = [
-            'npm' => '225705001',
-            'nama' => 'M. Luthfi Maulana',
+            'npm' => '2310010398',
+            'nama' => 'Lukmanul Hakim',
             'prodi' => 'Teknik Informatika',
-            'angkatan' => '2022',
-            'ipk' => 3.85,
+            'angkatan' => '2023',
+            'ipk' => 3.80,
             'matkul' => [
                 'Pemrograman Web 2',
                 'Struktur Data',
