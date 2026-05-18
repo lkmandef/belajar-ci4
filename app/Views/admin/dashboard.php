@@ -13,7 +13,12 @@
 <?php $this->section('content') ?>
 <div class='d-flex justify-content-between align-items-center mb-4'>
     <h2><i class='bi bi-speedometer2'></i> Dashboard Admin</h2>
-    <span class='text-muted'>Halo, <?= esc(session()->get('nama')) ?>!</span>
+    <div class='d-flex align-items-center gap-3'>
+        <span class='text-muted'>Halo, <?= esc(session()->get('nama')) ?>!</span>
+        <a href='<?= base_url('admin/pengguna') ?>' class='btn btn-primary'>
+            <i class='bi bi-people'></i> Manajemen Pengguna
+        </a>
+    </div>
 </div>
 <!-- Kartu Statistik -->
 <div class='row g-3 mb-4'>

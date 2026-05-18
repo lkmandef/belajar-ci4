@@ -67,26 +67,42 @@
                             <i class='bi bi-tags'></i> Kategori
                         </a>
                     </li>
-                </ul>
-                <div class='navbar-nav'>
-                    <?php if (session()->get('logged_in')): ?>
-                        <span class='navbar-text me-3 text-light'>
-                            <i class='bi bi-person-circle'></i>
-                            <?= esc(session()->get('nama')) ?>
-                        </span>
-                        <a class='btn btn-outline-light btn-sm me-2' href='<?= base_url('akun/ganti-password') ?>'>
-                            <i class='bi bi-key'></i> Ganti Password
-                        </a>
-                        <a class='btn btn-outline-light btn-sm' href='<?= base_url('logout') ?>'>
-                            <i class='bi bi-box-arrow-right'></i> Logout
-                        </a>
-                    <?php else: ?>
-                        <a class='btn btn-outline-light btn-sm' href='<?=
-                                                                        base_url('login') ?>'>
-                            <i class='bi bi-box-arrow-in-right'></i> Login
-                        </a>
+                    <?php if (session()->get('role') === 'admin'): ?>
+                        <li class='nav-item dropdown'>
+                            <a class='nav-link dropdown-toggle <?= str_contains(current_url(), '/admin') ? 'active' : '' ?>' href='#' id='adminDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                <i class='bi bi-shield-lock'></i> Admin Area
+                            </a>
+                            <ul class='dropdown-menu' aria-labelledby='adminDropdown'>
+                                <li><a class='dropdown-item' href='<?= base_url('admin') ?>'><i class='bi bi-speedometer2 me-2'></i>Dashboard</a></li>
+                                <li><a class='dropdown-item' href='<?= base_url('admin/pengguna') ?>'><i class='bi bi-people me-2'></i>Manajemen Pengguna</a></li>
+                            </ul>
+                        </li>
                     <?php endif; ?>
-                </div>
+                </ul>
+                <ul class='navbar-nav align-items-center'>
+                    <?php if (session()->get('logged_in')): ?>
+                        <li class='nav-item dropdown'>
+                            <a class='nav-link dropdown-toggle d-flex align-items-center gap-1 text-light' href='#' id='userDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                <i class='bi bi-person-circle fs-5'></i>
+                                <span><?= esc(session()->get('nama')) ?></span>
+                            </a>
+                            <ul class='dropdown-menu dropdown-menu-end shadow-sm' aria-labelledby='userDropdown'>
+                                <li><a class='dropdown-item' href='<?= base_url('profil') ?>'><i class='bi bi-person me-2'></i>Profil Saya</a></li>
+                                <li><a class='dropdown-item' href='<?= base_url('akun/ganti-password') ?>'><i class='bi bi-key me-2'></i>Ganti Password</a></li>
+                                <li>
+                                    <hr class='dropdown-divider'>
+                                </li>
+                                <li><a class='dropdown-item text-danger' href='<?= base_url('logout') ?>'><i class='bi bi-box-arrow-right me-2'></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    <?php else: ?>
+                        <li class='nav-item'>
+                            <a class='btn btn-outline-light btn-sm ms-2' href='<?= base_url('login') ?>'>
+                                <i class='bi bi-box-arrow-in-right'></i> Login
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
             </div>
         </div>
     </nav>
