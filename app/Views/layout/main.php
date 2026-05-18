@@ -74,8 +74,10 @@
                             <i class='bi bi-person-circle'></i>
                             <?= esc(session()->get('nama')) ?>
                         </span>
-                        <a class='btn btn-outline-light btn-sm' href='<?=
-                                                                        base_url('logout') ?>'>
+                        <a class='btn btn-outline-light btn-sm me-2' href='<?= base_url('akun/ganti-password') ?>'>
+                            <i class='bi bi-key'></i> Ganti Password
+                        </a>
+                        <a class='btn btn-outline-light btn-sm' href='<?= base_url('logout') ?>'>
                             <i class='bi bi-box-arrow-right'></i> Logout
                         </a>
                     <?php else: ?>
@@ -98,8 +100,9 @@
                         <li class='breadcrumb-item'>
                             <a href='<?= base_url('/') ?>'>Beranda</a>
                         </li>
-                        <?php foreach ($breadcrumb as $crumb): ?>
-                            <?php if ($loop->last): ?>
+                        <?php $totalCrumb = count($breadcrumb); ?>
+                        <?php foreach ($breadcrumb as $index => $crumb): ?>
+                            <?php if ($index === $totalCrumb - 1): ?>
                                 <li class='breadcrumb-item active'><?=
                                                                     esc($crumb['label']) ?></li>
                             <?php else: ?>
