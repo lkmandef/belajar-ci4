@@ -25,19 +25,19 @@
                     <div class="col-md-8 order-2 order-md-1 mt-4 mt-md-0">
                         <div class="row mb-3">
                             <div class="col-sm-4 fw-bold">NPM</div>
-                            <div class="col-sm-8"><?= esc($npm) ?></div>
+                            <div class="col-sm-8"><?= esc((string) $npm) ?></div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-sm-4 fw-bold">Nama Lengkap</div>
-                            <div class="col-sm-8"><?= esc($nama) ?></div>
+                            <div class="col-sm-8"><?= esc((string) $nama) ?></div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-sm-4 fw-bold">Program Studi</div>
-                            <div class="col-sm-8"><?= esc($prodi) ?></div>
+                            <div class="col-sm-8"><?= esc((string) $prodi) ?></div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-sm-4 fw-bold">Angkatan</div>
-                            <div class="col-sm-8"><?= esc($angkatan) ?></div>
+                            <div class="col-sm-8"><?= esc((string) $angkatan) ?></div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-sm-4 fw-bold">IPK</div>
@@ -45,7 +45,7 @@
                                 <?php
                                 $warna = $ipk >= 3.5 ? 'success' : ($ipk >= 3.0 ? 'warning' : 'danger');
                                 ?>
-                                <span class="badge bg-<?= $warna ?>"><?= esc(number_format($ipk, 2)) ?></span>
+                                <span class="badge bg-<?= $warna ?>"><?= esc((string) number_format($ipk, 2)) ?></span>
                             </div>
                         </div>
                         <div class="row">
@@ -53,7 +53,7 @@
                             <div class="col-sm-8">
                                 <ul class="mb-0 ps-3">
                                     <?php foreach ($matkul as $mk): ?>
-                                        <li><?= esc($mk) ?></li>
+                                        <li><?= esc((string) $mk) ?></li>
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
@@ -66,12 +66,12 @@
                             <div class="mb-3">
                                 <img src="<?= base_url('assets/css/img/profil.jpg') ?>"
                                     onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=<?= urlencode($nama) ?>&amp;size=200&amp;background=0d6efd&amp;color=fff';"
-                                    alt="Foto Profil <?= esc($nama) ?>"
+                                    alt="Foto Profil <?= esc((string) $nama) ?>"
                                     class="img-fluid rounded-circle shadow"
                                     style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #fff;">
                             </div>
-                            <h6 class="fw-bold mb-1"><?= esc($nama) ?></h6>
-                            <span class="badge bg-primary mb-2"><?= esc($npm) ?></span>
+                            <h6 class="fw-bold mb-1"><?= esc((string) $nama) ?></h6>
+                            <span class="badge bg-primary mb-2"><?= esc((string) $npm) ?></span>
                             <p class="text-muted small mb-0"><i class="bi bi-person-badge"></i> Mahasiswa</p>
                         </div>
                     </div>

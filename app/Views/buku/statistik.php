@@ -1,5 +1,15 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $title
+ * @var array $stats
+ * @var array $top5
+ * @var array $zeroStock
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 
 <div class='d-flex justify-content-between align-items-center mb-4'>
     <h2><i class='bi bi-graph-up'></i> Statistik Buku</h2>
@@ -53,7 +63,7 @@
             <tbody>
                 <?php foreach ($stats['per_kategori'] as $kat): ?>
                     <tr>
-                        <td><?= esc($kat['nama'] ?? 'Tanpa Kategori') ?></td>
+                        <td><?= esc((string) ($kat['nama'] ?? 'Tanpa Kategori')) ?></td>
                         <td class='text-center'><span class='badge bg-info'><?= $kat['jumlah'] ?></span></td>
                         <td class='text-center'><span class='badge bg-success'><?= $kat['jumlah_stok'] ?? 0 ?></span></td>
                     </tr>
@@ -82,8 +92,8 @@
                 <?php foreach ($top5 as $i => $b): ?>
                     <tr>
                         <td><?= $i + 1 ?></td>
-                        <td><?= esc($b['judul']) ?></td>
-                        <td><span class='badge bg-info'><?= esc($b['nama_kategori'] ?? '-') ?></span></td>
+                        <td><?= esc((string) $b['judul']) ?></td>
+                        <td><span class='badge bg-info'><?= esc((string) ($b['nama_kategori'] ?? '-')) ?></span></td>
                         <td class='text-center'><span class='badge bg-warning'><?= $b['stok'] ?></span></td>
                     </tr>
                 <?php endforeach; ?>
@@ -117,8 +127,8 @@
                     <?php foreach ($zeroStock as $i => $b): ?>
                         <tr>
                             <td><?= $i + 1 ?></td>
-                            <td><?= esc($b['judul']) ?></td>
-                            <td><span class='badge bg-info'><?= esc($b['nama_kategori'] ?? '-') ?></span></td>
+                            <td><?= esc((string) $b['judul']) ?></td>
+                            <td><span class='badge bg-info'><?= esc((string) ($b['nama_kategori'] ?? '-')) ?></span></td>
                             <td class='text-center'>
                                 <a href='<?= base_url('buku/edit/' . $b['id']) ?>' class='btn btn-sm btn-warning'>
                                     <i class='bi bi-pencil'></i> Edit
@@ -132,4 +142,4 @@
     <?php endif; ?>
 </div>
 
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

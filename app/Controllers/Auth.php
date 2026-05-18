@@ -83,7 +83,7 @@ class Auth extends BaseController
             return redirect()->to('/petugas'); // beranda petugas
         } else {
             // Redirect ke halaman yang semula ingin diakses, atau beranda umum
-            $redirect = session()->getFlashdata('redirect_after_login') ?? '/';
+            $redirect = (string) (session()->getFlashdata('redirect_after_login') ?? '/');
             return redirect()->to($redirect);
         }
     }

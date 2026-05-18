@@ -1,16 +1,29 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
-<h1><?= esc($judul) ?></h1>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $judul
+ * @var string|int $tahun
+ * @var array $warna
+ * @var array $user
+ * @var array $produk
+ * @var bool $show_footer
+ * @var string|null $promo
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
+<h1><?= esc((string) $judul) ?></h1>
 <p>Tahun: <?= $tahun ?></p>
 <!-- Array flat dengan foreach -->
 <h3>Daftar Warna:</h3>
 <ul>
     <?php foreach ($warna as $w): ?>
-        <li><?= esc($w) ?></li>
+        <li><?= esc((string) $w) ?></li>
     <?php endforeach; ?>
 </ul>
 <!-- Array asosiatif -->
-<p>Nama: <?= esc($user['nama']) ?> | Email: <?= esc($user['email']) ?></p>
+<p>Nama: <?= esc((string) $user['nama']) ?> | Email: <?= esc((string) $user['email']) ?></p>
 <!-- Array of array sebagai tabel -->
 <table class='table'>
     <thead>
@@ -24,7 +37,7 @@
         <?php foreach ($produk as $p): ?>
             <tr>
                 <td><?= $p['id'] ?></td>
-                <td><?= esc($p['nama']) ?></td>
+                <td><?= esc((string) $p['nama']) ?></td>
                 <td><?= format_rupiah($p['harga']) ?></td>
             </tr>
         <?php endforeach; ?>
@@ -36,6 +49,6 @@
 <?php endif; ?>
 <!-- Optional data -->
 <?php if (!is_null($promo)): ?>
-    <div class='alert alert-warning'><?= esc($promo) ?></div>
+    <div class='alert alert-warning'><?= esc((string) $promo) ?></div>
 <?php endif; ?>
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

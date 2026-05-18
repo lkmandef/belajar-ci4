@@ -1,5 +1,13 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $title
+ * @var array|null $kategori
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 
 <?php $isEdit = !is_null($kategori); ?>
 
@@ -9,14 +17,14 @@
             <div class='card-header bg-primary text-white'>
                 <h4 class='mb-0'>
                     <i class='bi bi-<?= $isEdit ? 'pencil' : 'plus-circle' ?>'></i>
-                    <?= esc($title) ?>
+                    <?= esc((string) $title) ?>
                 </h4>
             </div>
             <div class='card-body'>
 
                 <?php if (session()->getFlashdata('error')): ?>
                     <div class='alert alert-danger'>
-                        <?= esc(session()->getFlashdata('error')) ?>
+                        <?= esc((string) session()->getFlashdata('error')) ?>
                     </div>
                 <?php endif; ?>
 
@@ -25,12 +33,12 @@
 
                     <div class='mb-3'>
                         <label class='form-label fw-bold'>Nama Kategori <span class='text-danger'>*</span></label>
-                        <input type='text' name='nama' class='form-control' value='<?= esc(old('nama', $kategori['nama'] ?? '')) ?>' required>
+                        <input type='text' name='nama' class='form-control' value='<?= esc((string) old('nama', $kategori['nama'] ?? '')) ?>' required>
                     </div>
 
                     <div class='mb-3'>
                         <label class='form-label fw-bold'>Deskripsi</label>
-                        <textarea name='deskripsi' rows='4' class='form-control'><?= esc(old('deskripsi', $kategori['deskripsi'] ?? '')) ?></textarea>
+                        <textarea name='deskripsi' rows='4' class='form-control'><?= esc((string) old('deskripsi', $kategori['deskripsi'] ?? '')) ?></textarea>
                     </div>
 
                     <div class='d-flex gap-2'>
@@ -52,4 +60,4 @@
     </div>
 </div>
 
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

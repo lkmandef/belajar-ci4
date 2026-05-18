@@ -1,5 +1,16 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $title
+ * @var array $buku
+ * @var \CodeIgniter\Pager\Pager $pager
+ * @var string $keyword
+ * @var int $total
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 
 <div class='d-flex justify-content-between align-items-center mb-4'>
     <div>
@@ -24,7 +35,7 @@
     <div class='input-group'>
         <input type='text' name='q' class='form-control'
             placeholder='Cari judul, penulis, atau penerbit...'
-            value='<?= esc($keyword) ?>'>
+            value='<?= esc((string) $keyword) ?>'>
         <button class='btn btn-outline-secondary' type='submit'>
             <i class='bi bi-search'></i> Cari
         </button>
@@ -65,17 +76,17 @@
                     <tr>
                         <td class='text-center'><?= ($pager->getCurrentPage() - 1) * 10 +
                                                     $i + 1 ?></td>
-                        <td><code><?= esc($b['kode_buku']) ?></code></td>
+                        <td><code><?= esc((string) $b['kode_buku']) ?></code></td>
                         <td>
-                            <strong><?= esc($b['judul']) ?></strong><br>
-                            <small class='text-muted'><?= esc($b['penerbit'] ?? '-') ?>,
-                                <?= esc($b['tahun'] ?? '-') ?></small>
+                            <strong><?= esc((string) $b['judul']) ?></strong><br>
+                            <small class='text-muted'><?= esc((string) ($b['penerbit'] ?? '-')) ?>,
+                                <?= esc((string) ($b['tahun'] ?? '-')) ?></small>
                         </td>
-                        <td><?= esc($b['penulis']) ?></td>
+                        <td><?= esc((string) $b['penulis']) ?></td>
                         <td>
                             <?php if ($b['nama_kategori']): ?>
                                 <span class='badge bg-info'><?=
-                                                            esc($b['nama_kategori']) ?></span>
+                                                            esc((string) $b['nama_kategori']) ?></span>
                             <?php else: ?>
                                 <span class='text-muted'>-</span>
                             <?php endif; ?>
@@ -98,7 +109,7 @@ btn-sm btn-warning' title='Edit'>
                                 class='btn btn-sm btn-danger'
                                 title='Hapus'
                                 onclick="return confirm('Yakin ingin menghapus buku \" <?=
-                                                                                        esc($b['judul'], 'js') ?>\"?')">
+                                                                                        esc((string) $b['judul'], 'js') ?>\"?')">
                                 <i class='bi bi-trash'></i>
                             </a>
                         </td>
@@ -114,4 +125,4 @@ btn-sm btn-warning' title='Edit'>
     </div>
 <?php endif; ?>
 
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

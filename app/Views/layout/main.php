@@ -1,10 +1,18 @@
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string|null $title
+ * @var array|null $breadcrumb
+ */
+?>
 <!DOCTYPE html>
 <html lang='id'>
 
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title><?= isset($title) ? esc($title) . ' - MyApp' : 'MyApp' ?></title>
+    <title><?= isset($title) ? esc((string) $title) . ' - MyApp' : 'MyApp' ?></title>
     <!-- Bootstrap 5 CSS -->
     <link
         href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css'
@@ -84,7 +92,7 @@
                         <li class='nav-item dropdown'>
                             <a class='nav-link dropdown-toggle d-flex align-items-center gap-1 text-light' href='#' id='userDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                                 <i class='bi bi-person-circle fs-5'></i>
-                                <span><?= esc(session()->get('nama')) ?></span>
+                                <span><?= esc((string) session()->get('nama')) ?></span>
                             </a>
                             <ul class='dropdown-menu dropdown-menu-end shadow-sm' aria-labelledby='userDropdown'>
                                 <li><a class='dropdown-item' href='<?= base_url('profil') ?>'><i class='bi bi-person me-2'></i>Profil Saya</a></li>
@@ -120,11 +128,11 @@
                         <?php foreach ($breadcrumb as $index => $crumb): ?>
                             <?php if ($index === $totalCrumb - 1): ?>
                                 <li class='breadcrumb-item active'><?=
-                                                                    esc($crumb['label']) ?></li>
+                                                                    esc((string) $crumb['label']) ?></li>
                             <?php else: ?>
                                 <li class='breadcrumb-item'>
-                                    <a href='<?= esc($crumb['url']) ?>'><?=
-                                                                        esc($crumb['label']) ?></a>
+                                    <a href='<?= esc((string) $crumb['url']) ?>'><?=
+                                                                        esc((string) $crumb['label']) ?></a>
                                 </li>
                             <?php endif; ?>
                         <?php endforeach; ?>
@@ -139,21 +147,21 @@
         <?php if (session()->getFlashdata('sukses')): ?>
             <div class='alert alert-success alert-dismissible fade show' role='alert'>
                 <i class='bi bi-check-circle-fill me-2'></i>
-                <?= esc(session()->getFlashdata('sukses')) ?>
+                <?= esc((string) session()->getFlashdata('sukses')) ?>
                 <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
             </div>
         <?php endif; ?>
         <?php if (session()->getFlashdata('error')): ?>
             <div class='alert alert-danger alert-dismissible fade show' role='alert'>
                 <i class='bi bi-exclamation-triangle-fill me-2'></i>
-                <?= esc(session()->getFlashdata('error')) ?>
+                <?= esc((string) session()->getFlashdata('error')) ?>
                 <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
             </div>
         <?php endif; ?>
         <?php if (session()->getFlashdata('info')): ?>
             <div class='alert alert-info alert-dismissible fade show' role='alert'>
                 <i class='bi bi-info-circle-fill me-2'></i>
-                <?= esc(session()->getFlashdata('info')) ?>
+                <?= esc((string) session()->getFlashdata('info')) ?>
                 <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
             </div>
         <?php endif; ?>

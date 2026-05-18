@@ -1,5 +1,15 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $title
+ * @var array $galeri
+ * @var array $kategori_unik
+ * @var string $kategori_aktif
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 
 <div class='container'>
     <h1 class='mb-4'><i class='bi bi-images'></i> Galeri</h1>
@@ -12,8 +22,8 @@
                 Semua
             </a>
             <?php foreach ($kategori_unik as $kat): ?>
-                <a href='<?= base_url('galeri?kategori=' . esc($kat)) ?>' class='btn btn-outline-secondary btn-sm <?= $kategori_aktif === $kat ? 'active' : '' ?>'>
-                    <?= esc(ucfirst($kat)) ?>
+                <a href='<?= base_url('galeri?kategori=' . esc((string) $kat)) ?>' class='btn btn-outline-secondary btn-sm <?= $kategori_aktif === $kat ? 'active' : '' ?>'>
+                    <?= esc(ucfirst((string) $kat)) ?>
                 </a>
             <?php endforeach; ?>
         </div>
@@ -24,11 +34,11 @@
         <?php foreach ($galeri as $item): ?>
             <div class='col-md-4'>
                 <div class='card h-100'>
-                    <img src='<?= esc($item['url_gambar']) ?>' class='card-img-top' alt='<?= esc($item['judul']) ?>'>
+                    <img src='<?= esc((string) $item['url_gambar']) ?>' class='card-img-top' alt='<?= esc((string) $item['judul']) ?>'>
                     <div class='card-body'>
-                        <h5 class='card-title'><?= esc($item['judul']) ?></h5>
-                        <p class='card-text'><?= esc(truncate_text($item['deskripsi'], 100)) ?></p>
-                        <span class='badge bg-info'><?= esc(ucfirst($item['kategori'])) ?></span>
+                        <h5 class='card-title'><?= esc((string) $item['judul']) ?></h5>
+                        <p class='card-text'><?= esc(truncate_text((string) $item['deskripsi'], 100)) ?></p>
+                        <span class='badge bg-info'><?= esc(ucfirst((string) $item['kategori'])) ?></span>
                     </div>
                 </div>
             </div>
@@ -42,10 +52,10 @@
     <?php endif; ?>
 </div>
 
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>
 
 <!-- Page-specific scripts for Galeri -->
-<?= $this->section('scripts') ?>
+<?php $this->section('scripts') ?>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         console.log('Galeri page loaded successfully');
@@ -59,4 +69,4 @@
         });
     });
 </script>
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

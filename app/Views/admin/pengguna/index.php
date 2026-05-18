@@ -1,5 +1,13 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $title
+ * @var array $users
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
@@ -34,19 +42,19 @@
                             <tr>
                                 <td class="text-center"><?= $i + 1 ?></td>
                                 <td>
-                                    <strong><?= esc($u['nama_lengkap']) ?></strong>
+                                    <strong><?= esc((string) $u['nama_lengkap']) ?></strong>
                                     <?php if ($isSelf): ?>
                                         <span class="badge bg-primary ms-1">Anda</span>
                                     <?php endif; ?>
                                     <br>
                                     <small class="text-muted">
-                                        <i class="bi bi-person"></i> <?= esc($u['username']) ?> | 
-                                        <i class="bi bi-envelope"></i> <?= esc($u['email']) ?>
+                                        <i class="bi bi-person"></i> <?= esc((string) $u['username']) ?> | 
+                                        <i class="bi bi-envelope"></i> <?= esc((string) $u['email']) ?>
                                     </small>
                                 </td>
                                 <td>
                                     <?php if ($isSelf): ?>
-                                        <span class="badge bg-dark fs-6"><?= ucfirst(esc($u['role'])) ?></span>
+                                        <span class="badge bg-dark fs-6"><?= ucfirst(esc((string) $u['role'])) ?></span>
                                         <small class="d-block text-muted mt-1">Tidak dapat diubah sendiri</small>
                                     <?php else: ?>
                                         <form action="<?= base_url('admin/pengguna/ubah-role/' . $u['id']) ?>" method="POST" class="d-flex align-items-center gap-1">
@@ -55,7 +63,7 @@
                                                 <option value="petugas" <?= $u['role'] === 'petugas' ? 'selected' : '' ?>>Petugas</option>
                                                 <option value="anggota" <?= $u['role'] === 'anggota' ? 'selected' : '' ?>>Anggota</option>
                                             </select>
-                                            <button type="submit" class="btn btn-sm btn-primary" title="Simpan Perubahan Role" onclick="return confirm('Yakin ingin mengubah role <?= esc($u['username'], 'js') ?>?')">
+                                            <button type="submit" class="btn btn-sm btn-primary" title="Simpan Perubahan Role" onclick="return confirm('Yakin ingin mengubah role <?= esc((string) $u['username'], 'js') ?>?')">
                                                 <i class="bi bi-check-lg"></i>
                                             </button>
                                         </form>
@@ -70,7 +78,7 @@
                                             </button>
                                         <?php else: ?>
                                             <form action="<?= base_url('admin/pengguna/toggle-aktif/' . $u['id']) ?>" method="POST" class="d-inline">
-                                                <button type="submit" class="btn btn-sm <?= $u['aktif'] ? 'btn-outline-danger' : 'btn-outline-success' ?>" title="<?= $u['aktif'] ? 'Nonaktifkan Akun' : 'Aktifkan Akun' ?>" onclick="return confirm('Yakin ingin <?= $u['aktif'] ? 'menonaktifkan' : 'mengaktifkan' ?> akun <?= esc($u['username'], 'js') ?>?')">
+                                                <button type="submit" class="btn btn-sm <?= $u['aktif'] ? 'btn-outline-danger' : 'btn-outline-success' ?>" title="<?= $u['aktif'] ? 'Nonaktifkan Akun' : 'Aktifkan Akun' ?>" onclick="return confirm('Yakin ingin <?= $u['aktif'] ? 'menonaktifkan' : 'mengaktifkan' ?> akun <?= esc((string) $u['username'], 'js') ?>?')">
                                                     <i class="bi bi-power"></i> <?= $u['aktif'] ? 'Nonaktifkan' : 'Aktifkan' ?>
                                                 </button>
                                             </form>
@@ -96,4 +104,4 @@
     </div>
 <?php endif; ?>
 
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

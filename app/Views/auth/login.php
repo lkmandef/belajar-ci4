@@ -1,5 +1,12 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $title
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 <div class='row justify-content-center mt-3'>
     <div class='col-md-5 col-lg-4'>
         <div class='card shadow'>
@@ -12,7 +19,7 @@
                 <?php if (!empty($errors)): ?>
                     <div class='alert alert-danger py-2'>
                         <?php foreach ($errors as $e): ?>
-                            <div><i class='bi bi-x-circle'></i> <?= esc($e) ?></div>
+                            <div><i class='bi bi-x-circle'></i> <?= esc((string) $e) ?></div>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
@@ -23,7 +30,7 @@
                         <div class='input-group'>
                             <span class='input-group-text'><i class='bi biperson'></i></span>
                             <input type='text' name='identifier' class='form-control'
-                                value='<?= esc(old('identifier')) ?>'
+                                value='<?= esc((string) old('identifier')) ?>'
                                 placeholder='Username atau email' required autofocus>
                         </div>
                     </div>
@@ -52,4 +59,4 @@
         </div>
     </div>
 </div>
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

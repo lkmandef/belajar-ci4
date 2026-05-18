@@ -1,5 +1,13 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $title
+ * @var array $kategori
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 
 <div class='d-flex justify-content-between align-items-center mb-4'>
     <div>
@@ -32,14 +40,14 @@
                 <?php foreach ($kategori as $i => $k): ?>
                     <tr>
                         <td class='text-center'><?= $i + 1 ?></td>
-                        <td><strong><?= esc($k['nama']) ?></strong></td>
-                        <td><?= esc($k['deskripsi'] ?? '-') ?></td>
+                        <td><strong><?= esc((string) $k['nama']) ?></strong></td>
+                        <td><?= esc((string) ($k['deskripsi'] ?? '-')) ?></td>
                         <td class='text-center'><span class='badge bg-info'><?= $k['jumlah'] ?></span></td>
                         <td class='text-center'>
                             <a href='<?= base_url('kategori/edit/' . $k['id']) ?>' class='btn btn-sm btn-warning' title='Edit'>
                                 <i class='bi bi-pencil'></i>
                             </a>
-                            <a href='<?= base_url('kategori/hapus/' . $k['id']) ?>' class='btn btn-sm btn-danger' title='Hapus' onclick="return confirm('Yakin ingin menghapus kategori " <?= esc($k['nama'], 'js') ?>"?')">
+                            <a href='<?= base_url('kategori/hapus/' . $k['id']) ?>' class='btn btn-sm btn-danger' title='Hapus' onclick="return confirm('Yakin ingin menghapus kategori " <?= esc((string) $k['nama'], 'js') ?>"?')">
                                 <i class='bi bi-trash'></i>
                             </a>
                         </td>
@@ -50,4 +58,4 @@
     </div>
 <?php endif; ?>
 
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

@@ -14,7 +14,7 @@
 <div class='d-flex justify-content-between align-items-center mb-4'>
     <h2><i class='bi bi-speedometer2'></i> Dashboard Admin</h2>
     <div class='d-flex align-items-center gap-3'>
-        <span class='text-muted'>Halo, <?= esc(session()->get('nama')) ?>!</span>
+        <span class='text-muted'>Halo, <?= esc((string) session()->get('nama')) ?>!</span>
         <a href='<?= base_url('admin/pengguna') ?>' class='btn btn-primary'>
             <i class='bi bi-people'></i> Manajemen Pengguna
         </a>
@@ -77,7 +77,7 @@
                     <tbody>
                         <?php foreach ($per_kategori as $k): ?>
                             <tr>
-                                <td><?= esc($k['nama'] ?? 'Tanpa Kategori') ?></td>
+                                <td><?= esc((string) ($k['nama'] ?? 'Tanpa Kategori')) ?></td>
                                 <td><?= $k['jumlah'] ?></td>
                                 <td><?= $k['total_stok'] ?></td>
                             </tr>
@@ -102,9 +102,9 @@
                     <tbody>
                         <?php foreach ($user_terbaru as $u): ?>
                             <tr>
-                                <td><?= esc($u['nama_lengkap']) ?></td>
+                                <td><?= esc((string) $u['nama_lengkap']) ?></td>
                                 <td><span class='badge bg-secondary'><?=
-                                                                        esc($u['role']) ?></span></td>
+                                                                        esc((string) $u['role']) ?></span></td>
                                 <td><?= format_tanggal($u['created_at']) ?></td>
                             </tr>
                         <?php endforeach; ?>

@@ -1,9 +1,19 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $title
+ * @var string $sapaan
+ * @var array $statistik
+ * @var array $buku_terbaru
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 <!-- Hero Section -->
 <div class='bg-primary text-white rounded-3 p-5 mb-4'>
     <h1 class='display-5 fw-bold'>
-        <i class='bi bi-book-half'></i> <?= esc($sapaan) ?>!
+        <i class='bi bi-book-half'></i> <?= esc((string) $sapaan) ?>!
     </h1>
     <p class='fs-5'>Selamat datang di Sistem Perpustakaan Digital.</p>
 </div>
@@ -54,10 +64,10 @@
         <div class='col-md-4'>
             <div class='card h-100'>
                 <div class='card-body'>
-                    <h5 class='card-title'><?= esc($buku['judul']) ?></h5>
+                    <h5 class='card-title'><?= esc((string) $buku['judul']) ?></h5>
                     <p class='card-text text-muted'>
-                        <i class='bi bi-person'></i> <?= esc($buku['penulis']) ?><br>
-                        <i class='bi bi-calendar'></i> <?= esc($buku['tahun']) ?>
+                        <i class='bi bi-person'></i> <?= esc((string) $buku['penulis']) ?><br>
+                        <i class='bi bi-calendar'></i> <?= esc((string) $buku['tahun']) ?>
                     </p>
                 </div>
                 <div class='card-footer bg-transparent'>
@@ -69,4 +79,4 @@
         </div>
     <?php endforeach; ?>
 </div>
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

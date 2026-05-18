@@ -1,5 +1,12 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var array $buku
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -22,35 +29,35 @@
                     <table class="table table-borderless">
                         <tr>
                             <th width="200">Judul Buku</th>
-                            <td>: <strong><?= esc($buku['judul']) ?></strong></td>
+                            <td>: <strong><?= esc((string) $buku['judul']) ?></strong></td>
                         </tr>
                         <tr>
                             <th>Kode Buku</th>
                             <td>: <code class="fs-6"><?=
-                                                        esc($buku['kode_buku']) ?></code></td>
+                                                        esc((string) $buku['kode_buku']) ?></code></td>
                         </tr>
                         <tr>
                             <th>Penulis</th>
-                            <td>: <?= esc($buku['penulis']) ?></td>
+                            <td>: <?= esc((string) $buku['penulis']) ?></td>
                         </tr>
                         <tr>
                             <th>Penerbit</th>
-                            <td>: <?= esc($buku['penerbit'] ?? '-') ?></td>
+                            <td>: <?= esc((string) ($buku['penerbit'] ?? '-')) ?></td>
                         </tr>
                         <tr>
                             <th>Tahun Terbit</th>
-                            <td>: <?= esc($buku['tahun'] ?? '-') ?></td>
+                            <td>: <?= esc((string) ($buku['tahun'] ?? '-')) ?></td>
                         </tr>
                         <tr>
                             <th>ISBN</th>
-                            <td>: <?= esc($buku['isbn'] ?? '-') ?></td>
+                            <td>: <?= esc((string) ($buku['isbn'] ?? '-')) ?></td>
                         </tr>
                         <tr>
                             <th>Kategori</th>
                             <td>:
                                 <?php if ($buku['nama_kategori']): ?>
                                     <span class="badge bg-info"><?=
-                                                                esc($buku['nama_kategori']) ?></span>
+                                                                esc((string) $buku['nama_kategori']) ?></span>
                                 <?php else: ?>
                                     <span class="text-muted">-</span>
                                 <?php endif; ?>
@@ -61,7 +68,7 @@
                     <hr>
                     <h5>Sinopsis / Deskripsi</h5>
                     <p class="text-justify mt-3">
-                        <?= $buku['deskripsi'] ? esc($buku['deskripsi']) : '<i 
+                        <?= $buku['deskripsi'] ? esc((string) $buku['deskripsi']) : '<i 
 class="text-muted">Tidak ada deskripsi tersedia.</i>' ?>
                     </p>
                 </div>
@@ -112,4 +119,4 @@ window.location.href='<?= base_url('buku/hapus/' . $buku['id']) ?>'">
     </div>
 </div>
 
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

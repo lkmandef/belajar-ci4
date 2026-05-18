@@ -1,5 +1,15 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $title
+ * @var string $versi
+ * @var string $framework
+ * @var array $fitur
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 <div class='row'>
     <div class='col-md-8'>
         <h1 class='mb-4'><i class='bi bi-info-circle'></i> Tentang Sistem</h1>
@@ -15,11 +25,11 @@
                     </tr>
                     <tr>
                         <th>Versi</th>
-                        <td><?= esc($versi) ?></td>
+                        <td><?= esc((string) $versi) ?></td>
                     </tr>
                     <tr>
                         <th>Framework</th>
-                        <td><?= esc($framework) ?></td>
+                        <td><?= esc((string) $framework) ?></td>
                     </tr>
                     <tr>
                         <th>Dibangun Oleh</th>
@@ -36,7 +46,7 @@
                 <?php foreach ($fitur as $f): ?>
                     <li class='list-group-item'>
                         <i class='bi bi-check2-circle text-success me-2'></i>
-                        <?= esc($f) ?>
+                        <?= esc((string) $f) ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -58,4 +68,4 @@
         </div>
     </div>
 </div>
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

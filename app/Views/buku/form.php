@@ -22,7 +22,7 @@ $errors = session()->getFlashdata('errors') ?? [];
             <div class='card-header bg-primary text-white'>
                 <h4 class='mb-0'>
                     <i class='bi bi-<?= $isEdit ? 'pencil' : 'plus-circle' ?>'></i>
-                    <?= esc($title) ?>
+                    <?= esc((string) $title) ?>
                 </h4>
             </div>
             <div class='card-body'>
@@ -38,7 +38,7 @@ $errors = session()->getFlashdata('errors') ?? [];
                         </h6>
                         <ul class='mb-0 ps-3'>
                             <?php foreach ($errors as $field => $msg): ?>
-                                <li><?= esc($msg) ?></li>
+                                <li><?= esc((string) $msg) ?></li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
@@ -54,7 +54,7 @@ $errors = session()->getFlashdata('errors') ?? [];
                             <div class='mb-3'>
                                 <label class='form-label fw-bold'>Kode Buku <span class='text-danger'>*</span></label>
                                 <input type='text' name='kode_buku' class='form-control'
-                                    value='<?= esc(old('kode_buku', $buku['kode_buku'] ?? '')) ?>'
+                                    value='<?= esc((string) old('kode_buku', $buku['kode_buku'] ?? '')) ?>'
                                     placeholder='Contoh: BK007' required
                                     <?= $isEdit ? 'readonly' : '' ?>>
                                 <?php if ($isEdit): ?>
@@ -64,18 +64,18 @@ $errors = session()->getFlashdata('errors') ?? [];
                             <div class='mb-3'>
                                 <label class='form-label fw-bold'>Judul <span class='text-danger'>*</span></label>
                                 <input type='text' name='judul' class='form-control'
-                                    value='<?= esc(old('judul', $buku['judul'] ?? '')) ?>' required>
+                                    value='<?= esc((string) old('judul', $buku['judul'] ?? '')) ?>' required>
                             </div>
                             <div class='mb-3'>
                                 <label class='form-label fw-bold'>Penulis <span class='text-danger'>*</span></label>
                                 <input type='text' name='penulis' class='form-control'
-                                    value='<?= esc(old('penulis', $buku['penulis'] ?? '')) ?>' required>
+                                    value='<?= esc((string) old('penulis', $buku['penulis'] ?? '')) ?>' required>
                             </div>
                             <div class='mb-3'>
 
                                 <label class='form-label fw-bold'>Penerbit</label>
                                 <input type='text' name='penerbit' class='form-control'
-                                    value='<?= esc(old('penerbit', $buku['penerbit'] ?? '')) ?>'>
+                                    value='<?= esc((string) old('penerbit', $buku['penerbit'] ?? '')) ?>'>
                             </div>
                         </div>
 
@@ -84,27 +84,27 @@ $errors = session()->getFlashdata('errors') ?? [];
                             <div class='mb-3'>
                                 <label class='form-label fw-bold'>Tahun Terbit</label>
                                 <input type='number' name='tahun' class='form-control'
-                                    value='<?= esc(old('tahun', $buku['tahun'] ?? '')) ?>'
+                                    value='<?= esc((string) old('tahun', $buku['tahun'] ?? '')) ?>'
                                     min='1900' max='<?= date('Y') + 1 ?>'>
                             </div>
                             <div class='mb-3'>
                                 <label class='form-label fw-bold'>ISBN</label>
                                 <input type='text' name='isbn' class='form-control'
-                                    value='<?= esc(old('isbn', $buku['isbn'] ?? '')) ?>'>
+                                    value='<?= esc((string) old('isbn', $buku['isbn'] ?? '')) ?>'>
                             </div>
                             <div class='mb-3'>
                                 <label class='form-label fw-bold'>Stok <span class='text-danger'>*</span></label>
                                 <input type='number' name='stok' class='form-control'
-                                    value='<?= esc(old('stok', $buku['stok'] ?? 0)) ?>'
+                                    value='<?= esc((string) old('stok', $buku['stok'] ?? 0)) ?>'
                                     min='0' required>
                             </div>
                             <div class='mb-3'>
                                 <label class='form-label fw-bold'>Kategori</label>
                                 <select name='kategori_id' class='form-select'>
                                     <?php foreach ($kategori as $kid => $knama): ?>
-                                        <option value='<?= esc($kid) ?>'
+                                        <option value='<?= esc((string) $kid) ?>'
                                             <?= old('kategori_id', $buku['kategori_id'] ?? '') == $kid ? 'selected' : '' ?>>
-                                            <?= esc($knama) ?>
+                                            <?= esc((string) $knama) ?>
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
@@ -115,7 +115,7 @@ $errors = session()->getFlashdata('errors') ?? [];
                     <!-- Deskripsi -->
                     <div class='mb-3'>
                         <label class='form-label fw-bold'>Deskripsi</label>
-                        <textarea name='deskripsi' rows='4' class='form-control'><?= esc(old('deskripsi', $buku['deskripsi'] ?? '')) ?></textarea>
+                        <textarea name='deskripsi' rows='4' class='form-control'><?= esc((string) old('deskripsi', $buku['deskripsi'] ?? '')) ?></textarea>
                     </div>
 
                     <!-- Tombol Aksi -->

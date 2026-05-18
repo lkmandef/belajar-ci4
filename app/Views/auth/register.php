@@ -1,5 +1,12 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $title
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 
 <div class='row justify-content-center'>
     <div class='col-md-7 col-lg-6'>
@@ -14,7 +21,7 @@
                     <div class='alert alert-danger'>
                         <ul class='mb-0 ps-3'>
                             <?php foreach ($errors as $e): ?>
-                                <li><?= esc($e) ?></li>
+                                <li><?= esc((string) $e) ?></li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
@@ -26,20 +33,20 @@
                         <div class='col-md-6 mb-3'>
                             <label class='form-label fw-bold'>Username *</label>
                             <input type='text' name='username' class='form-control'
-                                value='<?= esc(old('username')) ?>'
+                                value='<?= esc((string) old('username')) ?>'
                                 placeholder='Min. 4 karakter' required>
                             <small class='text-muted'>Hanya huruf dan angka, tanpa spasi.</small>
                         </div>
                         <div class='col-md-6 mb-3'>
                             <label class='form-label fw-bold'>Email *</label>
                             <input type='email' name='email' class='form-control'
-                                value='<?= esc(old('email')) ?>' required>
+                                value='<?= esc((string) old('email')) ?>' required>
                         </div>
                     </div>
                     <div class='mb-3'>
                         <label class='form-label fw-bold'>Nama Lengkap *</label>
                         <input type='text' name='nama_lengkap' class='form-control'
-                            value='<?= esc(old('nama_lengkap')) ?>' required>
+                            value='<?= esc((string) old('nama_lengkap')) ?>' required>
                     </div>
                     <div class='row'>
                         <div class='col-md-6 mb-3'>
@@ -66,4 +73,4 @@
     </div>
 </div>
 
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

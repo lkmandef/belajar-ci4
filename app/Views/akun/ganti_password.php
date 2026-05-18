@@ -1,5 +1,12 @@
-<?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+<?php
+
+/**
+ * @var \CodeIgniter\View\View $this
+ * @var string $title
+ */
+?>
+<?php $this->extend('layout/main') ?>
+<?php $this->section('content') ?>
 
 <div class='row justify-content-center'>
     <div class='col-md-7 col-lg-6'>
@@ -14,7 +21,7 @@
                     <div class='alert alert-danger'>
                         <ul class='mb-0 ps-3'>
                             <?php foreach ($errors as $e): ?>
-                                <li><?= esc($e) ?></li>
+                                <li><?= esc((string) $e) ?></li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
@@ -22,7 +29,7 @@
 
                 <?php if (session()->getFlashdata('error')): ?>
                     <div class='alert alert-danger'>
-                        <?= esc(session()->getFlashdata('error')) ?>
+                        <?= esc((string) session()->getFlashdata('error')) ?>
                     </div>
                 <?php endif; ?>
 
@@ -54,4 +61,4 @@
     </div>
 </div>
 
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>
